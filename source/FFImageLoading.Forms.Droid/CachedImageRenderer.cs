@@ -330,8 +330,8 @@ namespace FFImageLoading.Forms.Droid
 		{
 			if (_currentTask != null && !_currentTask.IsCancelled) 
 			{
-				_currentTask.Cancel();
-			}
+                Device.BeginInvokeOnMainThread(() => _currentTask.Cancel());
+            }
 		}
 
 		private Task<byte[]> GetImageAsJpgAsync(GetImageAsJpgArgs args)
